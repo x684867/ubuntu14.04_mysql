@@ -10,7 +10,8 @@ MAINTAINER Sam Caldwell <mail@samcaldwell.net>
 #
 ENV LOCAL_MYSQL_SERVER 1
 
-ADD files/installMySQLserver /usr/bin/installMySQLserver
+ADD files/installMySQLserver /usr/bin/
+ADD files/startServer /usr/bin/
 RUN /usr/bin/generateSelfSignedCert
 RUN /usr/bin/installMySQLserver
 RUN [ "$LOCAL_MYSQL_SERVER" == "1" ] && /usr/bin/installMySQLserver 
