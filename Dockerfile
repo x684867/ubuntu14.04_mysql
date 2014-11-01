@@ -11,12 +11,15 @@ MAINTAINER Sam Caldwell <mail@samcaldwell.net>
 ENV LOCAL_MYSQL_SERVER 1
 
 ADD files/installMySQLserver /usr/bin/
+ADD files/bindAddress.cnf /etc/mysql/conf.d/
 ADD files/startServer /usr/bin/
+
+
 RUN /usr/bin/generateSelfSignedCert
 RUN /usr/bin/installMySQLserver
 RUN [ "$LOCAL_MYSQL_SERVER" == "1" ] && /usr/bin/installMySQLserver 
 
-EXPOSE 80
+EXPOSE 3306
 
 #default command when docker image is run
 CMD ["/usr/bin/startServer"]
