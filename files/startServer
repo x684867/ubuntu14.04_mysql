@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+# startServer
+# (c) 2014 Sam Caldwell.  Public Domain
+#
+/etc/init.d/mysql restart && \
+/bin/bash && \
+echo "services started."
